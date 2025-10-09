@@ -7,12 +7,13 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     id("org.jetbrains.kotlin.plugin.serialization") version "2.0.0"
+    id("com.google.gms.google-services")
 }
 
 kotlin {
     androidTarget {
         compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_11)
+            jvmTarget.set(JvmTarget.JVM_21)
         }
     }
     
@@ -61,6 +62,14 @@ kotlin {
 
             implementation(libs.kotlinx.datetime)
             api(libs.kotlinx.datetime)
+
+            implementation(libs.firebase.auth)
+            implementation(libs.firebase.firestore)
+            implementation(libs.firebase.database)
+            implementation(libs.firebase.storage)
+            implementation(libs.firebase.analytics)
+
+            implementation(platform("com.google.firebase:firebase-bom:34.3.0"))
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -93,8 +102,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
 }
 

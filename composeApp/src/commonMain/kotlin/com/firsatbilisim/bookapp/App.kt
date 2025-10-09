@@ -8,6 +8,7 @@ import androidx.navigation.NavType
 import androidx.navigation.navArgument
 import com.firsatbilisim.bookapp.presentation.detail.BookDetailScreen
 import com.firsatbilisim.bookapp.presentation.home.BookHomeScreen
+import com.firsatbilisim.bookapp.presentation.register.RegisterScreen
 import com.firsatbilisim.bookapp.presentation.theme.SharedAppTheme
 
 @Composable
@@ -15,7 +16,11 @@ fun App() {
     SharedAppTheme {
         val navController = rememberNavController()
 
-        NavHost(navController = navController, startDestination = "home") {
+        NavHost(navController = navController, startDestination = "register") {
+
+            composable("register") {
+                RegisterScreen(navController = navController)
+            }
             composable("home") {
                 BookHomeScreen(navController = navController)
             }

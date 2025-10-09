@@ -10,16 +10,18 @@ import androidx.navigation.navArgument
 import com.firsatbilisim.bookapp.domain.model.GoogleModel // Dummy book için
 import com.firsatbilisim.bookapp.presentation.detail.BookDetailScreen
 import com.firsatbilisim.bookapp.presentation.home.BookHomeScreen
+import com.firsatbilisim.bookapp.presentation.register.RegisterScreen
 
 @Composable
 fun RedirectionPage() {
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = "home") {
+    NavHost(navController = navController, startDestination = "register") {
 
-        composable(
-            route = "home"
-        ) {
+        composable("register") {
+            RegisterScreen(navController = navController)
+        }
+        composable("home") {
             BookHomeScreen(navController = navController)
         }
         composable(

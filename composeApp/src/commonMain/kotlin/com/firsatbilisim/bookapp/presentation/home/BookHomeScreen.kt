@@ -28,6 +28,7 @@ import bookapp.composeapp.generated.resources.close_hint
 import bookapp.composeapp.generated.resources.search_hint
 import coil3.compose.AsyncImage
 import org.jetbrains.compose.resources.stringResource
+import org.koin.compose.viewmodel.koinViewModel
 
 private const val DEFAULT_SEARCH_QUERY = "android"
 
@@ -36,7 +37,7 @@ private const val DEFAULT_SEARCH_QUERY = "android"
 fun BookHomeScreen(
     navController: NavController,
 ) {
-    val viewModel: BookHomeViewModel = koinInject()
+    val viewModel: BookHomeViewModel = koinViewModel()
     val state by viewModel.state.collectAsState()
     var isSearching by remember { mutableStateOf(false) }
 

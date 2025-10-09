@@ -27,6 +27,8 @@ kotlinx-datetime = "0.6.0"
 
 compose = "1.6.11"
 
+firebase = "2.3.0"
+
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-testJunit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
@@ -69,6 +71,12 @@ compose-foundation = { group = "org.jetbrains.compose.foundation", name = "found
 compose-material3 = { group = "org.jetbrains.compose.material3", name = "material3", version.ref = "compose" }
 compose-material-icons-extended = { group = "org.jetbrains.compose.material", name = "material-icons-extended", version.ref = "compose" }
 compose-components-resources = { group = "org.jetbrains.compose.components", name = "components-resources", version.ref = "compose" }
+
+firebase-auth = { module = "dev.gitlive:firebase-auth", version.ref = "firebase" }
+firebase-firestore = { module = "dev.gitlive:firebase-firestore", version.ref = "firebase" }
+firebase-database = { module = "dev.gitlive:firebase-database", version.ref = "firebase" }
+firebase-storage = { module = "dev.gitlive:firebase-storage", version.ref = "firebase" }
+firebase-analytics = { module = "dev.gitlive:firebase-analytics", version.ref = "firebase" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
