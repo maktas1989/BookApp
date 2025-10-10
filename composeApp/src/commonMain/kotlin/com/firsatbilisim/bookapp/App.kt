@@ -8,16 +8,25 @@ import androidx.navigation.NavType
 import androidx.navigation.navArgument
 import com.firsatbilisim.bookapp.presentation.detail.BookDetailScreen
 import com.firsatbilisim.bookapp.presentation.home.BookHomeScreen
+import com.firsatbilisim.bookapp.presentation.login.LoginScreen
 import com.firsatbilisim.bookapp.presentation.register.RegisterScreen
 import com.firsatbilisim.bookapp.presentation.theme.SharedAppTheme
+import dev.gitlive.firebase.Firebase
+import dev.gitlive.firebase.auth.auth
 
 @Composable
 fun App() {
     SharedAppTheme {
         val navController = rememberNavController()
 
-        NavHost(navController = navController, startDestination = "register") {
+        val isLoggedIn = Firebase.auth.currentUser != null
+        val startDestination = if (isLoggedIn) "home" else "login"
 
+        NavHost(navController = navController, startDestination = startDestination) {
+
+            composable("login") {
+                LoginScreen(navController = navController)
+            }
             composable("register") {
                 RegisterScreen(navController = navController)
             }
